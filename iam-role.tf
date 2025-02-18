@@ -73,7 +73,7 @@ module "role" {
     var.lambda_role_managed_policy_arns
   )
 
-  use_fullname = var.role_name == "" ? true : false
+  use_fullname = var.role_name != "" && var.role_name != null ? true : false
   tags         = module.context.tags
 }
 
