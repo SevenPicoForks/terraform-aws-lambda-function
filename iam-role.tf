@@ -48,7 +48,6 @@ module "role" {
 
   context    = module.context.self
   attributes = ["role"]
-  name       = var.role_name
 
   assume_role_actions = ["sts:AssumeRole"]
   principals = {
@@ -73,7 +72,7 @@ module "role" {
     var.lambda_role_managed_policy_arns
   )
 
-  use_fullname = var.role_name != "" && var.role_name != null ? true : false
+  use_fullname = true
   tags         = module.context.tags
 }
 
